@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's Heritage - Celebrating India's Timeless Heritage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Music System -->
+    <div class="music-system">
+        <div class="music-controls">
+            <button id="play-pause-btn" class="music-btn">▶️</button>
+            <button id="prev-btn" class="music-btn">⏮️</button>
+            <button id="next-btn" class="music-btn">⏭️</button>
+            <span id="current-song" class="current-song">Indian Classical</span>
+        </div>
+        <div class="volume-control">
+            <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <span class="nav-logo">India's Heritage</span>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#monuments" class="nav-link">Monuments</a>
+                    <a href="#festivals" class="nav-link">Festivals</a>
+                    <a href="#arts-crafts" class="nav-link">Art & Craft</a>
+                    <a href="#culinary-delights" class="nav-link">Culinary Delights</a>
+                </div>
+                <button id="back-btn" class="back-btn hidden">← Back to Map</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage -->
+    <div id="homepage" class="page active">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Celebrating India's Timeless Heritage</h1>
+                <p class="hero-subtitle">Explore the monuments, traditions, festivals, and crafts that define India's cultural soul</p>
+                <button id="discover-btn" class="discover-btn">Discover More</button>
+            </div>
+        </header>
+
+        <!-- Map Section -->
+        <section id="map-section" class="map-section">
+            <div class="container">
+                <h2>Discover India's Heritage States</h2>
+                <div class="map-container">
+                    <div id="map" class="map"></div>
+                    <div class="map-info">
+                        <h3>Click on any state to explore</h3>
+                        <p>Discover monuments, culture, arts, crafts, and cuisine from 7 heritage-rich states</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About India's Heritage</h2>
+                <div class="about-content">
+                    <p>India's heritage is a magnificent tapestry woven from thousands of years of history, culture, and tradition. Our platform celebrates the rich cultural legacy of seven distinctive states, each offering unique monuments, traditions, arts, and culinary delights.</p>
+                    <p>From the royal palaces of Rajasthan to the sacred temples of Uttarakhand, from the Sikh heritage of Punjab to the hill traditions of Himachal Pradesh, we invite you to explore the diverse cultural landscape that makes India truly incredible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monuments Section -->
+        <section id="monuments" class="monuments-section">
+            <div class="container">
+                <h2>Historical Monuments</h2>
+                <div class="monuments-grid">
+                    <div class="monument-card">
+                        <h3>Ancient Temples</h3>
+                        <p>Sacred shrines that have stood the test of time, from Kedarnath to Golden Temple</p>
+                    </div>
+                    <div class="monument-card">
+                        <h3>Royal Palaces</h3>
+                        <p>Magnificent forts and palaces telling stories of kings and queens</p>
+                    </div>
+                    <div class="monument-card">
+                        <h3>Heritage Sites</h3>
+                        <p>UNESCO World Heritage sites preserving our architectural legacy</p>
+                    </div>
+                    <div class="monument-card">
+                        <h3>Hidden Gems</h3>
+                        <p>Undiscovered monuments waiting to share their secrets</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festivals Section -->
+        <section id="festivals" class="festivals-section">
+            <div class="container">
+                <h2>Living Traditions & Festivals</h2>
+                <div class="festivals-content">
+                    <div class="festival-list">
+                        <div class="festival-item">
+                            <h3>Ghoomar Dance (Rajasthan)</h3>
+                            <p>Traditional folk dance with flowing movements and colorful attire</p>
+                        </div>
+                        <div class="festival-item">
+                            <h3>Char Dham Yatra (Uttarakhand)</h3>
+                            <p>Sacred pilgrimage circuit to four holy shrines in the Himalayas</p>
+                        </div>
+                        <div class="festival-item">
+                            <h3>Baisakhi (Punjab)</h3>
+                            <p>Harvest festival celebrated with Bhangra dance and community feasts</p>
+                        </div>
+                        <div class="festival-item">
+                            <h3>Kumbh Mela (Uttar Pradesh)</h3>
+                            <p>World's largest peaceful gathering of pilgrims</p>
+                        </div>
+                        <div class="festival-item">
+                            <h3>Sufi Traditions (Jammu & Kashmir)</h3>
+                            <p>Spiritual music and poetry connecting hearts to the divine</p>
+                        </div>
+                        <div class="festival-item">
+                            <h3>Mountain Festivals (Himachal Pradesh)</h3>
+                            <p>Seasonal celebrations in the lap of snow-capped mountains</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arts & Crafts Section -->
+        <section id="arts-crafts" class="arts-section">
+            <div class="container">
+                <h2>Arts & Crafts Heritage</h2>
+                <div class="arts-grid">
+                    <div class="art-card">
+                        <h3>Textiles</h3>
+                        <p>Pashmina shawls, Phulkari embroidery, and Chikankari work</p>
+                    </div>
+                    <div class="art-card">
+                        <h3>Pottery & Crafts</h3>
+                        <p>Blue pottery, wood carving, and traditional handicrafts</p>
+                    </div>
+                    <div class="art-card">
+                        <h3>Paintings</h3>
+                        <p>Miniature paintings, Aipan art, and Pahari paintings</p>
+                    </div>
+                    <div class="art-card">
+                        <h3>Jewelry & Metalwork</h3>
+                        <p>Traditional ornaments and intricate metalwork crafts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culinary Delights Section -->
+        <section id="culinary-delights" class="culinary-section">
+            <div class="container">
+                <h2>Culinary Delights of India</h2>
+                <div class="culinary-content">
+                    <p>Each state offers a unique culinary journey that tells stories of history, geography, and culture through flavors and aromas.</p>
+                    
+                    <div class="culinary-highlights">
+                        <div class="culinary-card">
+                            <h3>🍛 Royal Cuisines</h3>
+                            <p>From Kashmir's aromatic Wazwan to Rajasthan's spicy Laal Maas, experience the rich flavors of royal kitchens</p>
+                        </div>
+                        <div class="culinary-card">
+                            <h3>🥘 Street Food Delights</h3>
+                            <p>Punjab's Chole Bhature, UP's Tunday Kababi, and mountain delicacies that capture the essence of local life</p>
+                        </div>
+                        <div class="culinary-card">
+                            <h3>🍯 Traditional Sweets</h3>
+                            <p>Himachal's Dham, Haryana's Churma Ladoo, and Uttarakhand's Bal Mithai showcase regional sweetness</p>
+                        </div>
+                        <div class="culinary-card">
+                            <h3>☕ Beverages & Teas</h3>
+                            <p>Kashmir's fragrant Kahwa and traditional mountain teas that warm both body and soul</p>
+                        </div>
+                    </div>
+
+                    <div class="culinary-description">
+                        <p>Our culinary heritage is as diverse as our landscapes - from the creamy richness of Punjab's butter chicken to the subtle mountain flavors of Himachal's traditional Dham. Each dish carries generations of knowledge, local ingredients, and the loving hands that prepare them.</p>
+                        <p>Explore the authentic flavors, cooking techniques, and food traditions that make each state's cuisine distinctive and memorable. Every meal is a journey through history, culture, and the heart of India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- State Subpages -->
+    <div id="state-page" class="page">
+        <div class="state-hero">
+            <div class="container">
+                <h1 id="state-title">State Name</h1>
+                <p id="state-subtitle">Discover the heritage</p>
+            </div>
+        </div>
+
+        <div class="state-content">
+            <div class="container">
+                <!-- Hidden and Undiscovered Monuments Section -->
+                <section class="content-section">
+                    <h2>Hidden & Undiscovered Monuments & Architecture</h2>
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll" id="monuments-scroll">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Culture & Traditions Section -->
+                <section class="content-section">
+                    <h2>Culture & Traditions</h2>
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll" id="culture-scroll">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arts & Crafts Section -->
+                <section class="content-section">
+                    <h2>Art & Craft</h2>
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll" id="arts-scroll">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Culinary Delights Section -->
+                <section class="content-section">
+                    <h2>Culinary Delights</h2>
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll" id="food-scroll">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Community Section -->
+                <section class="community-section">
+                    <h2>Community Voices</h2>
+                    <div class="quotes-container" id="quotes-container">
+                        <!-- Dynamic quotes -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Detail Modal -->
+    <div id="item-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2 id="modal-title">Item Title</h2>
+                <div class="modal-icon" id="modal-icon">🏛️</div>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description">Item description goes here...</p>
+                <div class="modal-details">
+                    <h4>Additional Information</h4>
+                    <p id="modal-extra-info">Detailed information about this heritage item...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 India's Heritage. Celebrating our timeless cultural legacy.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
